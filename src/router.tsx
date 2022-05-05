@@ -47,6 +47,10 @@ const Status500 = Loader(lazy(() => import('src/content/pages/Status/Status500')
 const StatusComingSoon = Loader(lazy(() => import('src/content/pages/Status/ComingSoon')));
 const StatusMaintenance = Loader(lazy(() => import('src/content/pages/Status/Maintenance')));
 
+//Modules
+const Author = Loader(lazy(() => import('src/modules/authors/screen')))
+const NewAuthor = Loader(lazy(() => import('src/modules/authors/screen/NewAuthor')))
+
 
 const routes: PartialRouteObject[] = [
   {
@@ -99,6 +103,31 @@ const routes: PartialRouteObject[] = [
       {
         path: '*',
         element: <Status404 />
+      },
+    ]
+  },
+  {
+    path: 'mantenimientos',
+    element: (
+      <SidebarLayout />
+    ),
+    children: [
+      {
+        path: '/',
+        element: (
+          <Navigate
+            to="/mantenimientos/"
+            replace
+          />
+        )
+      },
+      {
+        path: 'autor',
+        element: <Author />
+      },
+      {
+        path: 'new-autor',
+        element: <NewAuthor />
       },
     ]
   },

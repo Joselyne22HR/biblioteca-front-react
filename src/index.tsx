@@ -7,16 +7,20 @@ import { BrowserRouter } from 'react-router-dom';
 
 import 'nprogress/nprogress.css';
 import { SidebarProvider } from './contexts/SidebarContext';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 ReactDOM.render(
+ <Provider store={store}>
   <HelmetProvider>
-    <SidebarProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </SidebarProvider>
-  </HelmetProvider>,
-  document.getElementById('root')
+   <SidebarProvider>
+    <BrowserRouter>
+     <App />
+    </BrowserRouter>
+   </SidebarProvider>
+  </HelmetProvider>
+ </Provider>,
+ document.getElementById('root')
 );
 
 serviceWorker.unregister();

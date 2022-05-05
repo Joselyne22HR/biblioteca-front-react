@@ -56,6 +56,16 @@ const menuItems: MenuItems[] = [
     ]
   },
   {
+    heading: 'Mantenimientos',
+    items: [
+      {
+        name: 'Autor',
+        link: '/mantenimientos/autor',
+        icon: BrightnessLowTwoToneIcon
+      },
+    ]
+  },
+  {
     heading: 'Management',
     items: [
       {
