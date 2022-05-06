@@ -49,7 +49,8 @@ const StatusMaintenance = Loader(lazy(() => import('src/content/pages/Status/Mai
 
 //Modules
 const Author = Loader(lazy(() => import('src/modules/authors/screen')))
-const NewAuthor = Loader(lazy(() => import('src/modules/authors/screen/NewAuthor')))
+const NewAuthor = Loader(lazy(() => import('src/modules/authors/screen/ScreenAuthor')))
+const EditAuthor = Loader(lazy(() => import('src/modules/authors/screen/ScreenEditAuthor')))
 
 
 const routes: PartialRouteObject[] = [
@@ -128,6 +129,10 @@ const routes: PartialRouteObject[] = [
       {
         path: 'new-autor',
         element: <NewAuthor />
+      },
+      {
+        path: 'autor/:idAuthor',
+        element: <EditAuthor />
       },
     ]
   },
