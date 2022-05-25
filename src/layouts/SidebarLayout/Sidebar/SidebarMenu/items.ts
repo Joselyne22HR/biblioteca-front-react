@@ -63,6 +63,16 @@ const menuItems: MenuItems[] = [
         link: '/mantenimientos/autor',
         icon: BrightnessLowTwoToneIcon
       },
+      {
+        name: 'Editorial',
+        link: '/mantenimientos/editorial',
+        icon: BrightnessLowTwoToneIcon
+      },
+      {
+        name: 'Categoria',
+        link: '/mantenimientos/category',
+        icon: BrightnessLowTwoToneIcon
+      },
     ]
   },
   {

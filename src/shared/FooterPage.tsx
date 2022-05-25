@@ -1,6 +1,7 @@
 import { Box, Container, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import React from 'react';
 
 const FooterWrapper = styled(Box)(
  ({ theme }) => `
@@ -34,4 +35,4 @@ const FooterPage = () => {
  );
 };
 
-export default FooterPage;
+export default React.memo(FooterPage);

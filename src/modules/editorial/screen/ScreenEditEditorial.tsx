@@ -3,18 +3,18 @@ import { Helmet } from "react-helmet-async"
 import PageTitleWrapper from "src/components/PageTitleWrapper"
 import FooterPage from "src/shared/FooterPage"
 import PrincipalHeader from "src/shared/PrincipalHeader"
-import FormAuthor from "../components/FormAuthor"
+import FormEditorial from "../components/FormEditorial"
 
-const ScreenEditAuthor = () => {
+const ScreenEditEditorial = () => {
   return (
     <>
     <Helmet>
-     <title>Editar autor</title>
+     <title>Editar editorial</title>
     </Helmet>
     <PageTitleWrapper>
      <PrincipalHeader
-      title={'Autor'}
-      subtitle={'Aquí podrás editar los datos del autor.'}
+      title={'Editorial'}
+      subtitle={'Aquí podrás editar los datos de la editorial.'}
      />
     </PageTitleWrapper>
     <Container maxWidth="lg">
@@ -27,9 +27,9 @@ const ScreenEditAuthor = () => {
      >
       <Grid item xs={12}>
        <Card>
-        <CardHeader title="Editar autor" />
+        <CardHeader title="Editar editorial" />
         <Divider />
-        <FormAuthor edit/>
+        <FormEditorial edit/>
        </Card>
       </Grid>
      </Grid>
@@ -39,4 +39,4 @@ const ScreenEditAuthor = () => {
   )
 }
 
-export default ScreenEditAuthor
+export default ScreenEditEditorial

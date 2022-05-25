@@ -1,6 +1,7 @@
 import { Typography, Button, Grid } from '@mui/material';
 
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
+import React from 'react';
 
 interface Props {
  title: String;
@@ -33,4 +34,4 @@ const PrincipalHeader = ({ title, subtitle, buttonTitle, handleClick }: Props) =
  );
 };
 
-export default PrincipalHeader;
+export default React.memo(PrincipalHeader);

@@ -43,7 +43,7 @@ const FormAuthor = ({ edit }: Props) => {
    validationSchema: validationAuthorSchema,
    onSubmit: async ({ name, gender }) => {
     edit
-     ? await updateAuthorMutation({ author: { name, gender }, id: idAuthor })
+     ? await updateAuthorMutation({ author: { name, gender }, _id: idAuthor })
      : await newAuthorMutation({ author: { name, gender } });
    }
   });

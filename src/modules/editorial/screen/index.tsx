@@ -16,47 +16,43 @@ import {
 } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router';
-import {
- useDeleteAuthorMutation,
- useGetAuthorsQuery
-} from '../slice/authorApiSlice';
-import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from 'src/store/useRedux';
-import { setDeleteModal } from '../slice/authorSlice';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
 import FooterPage from 'src/shared/FooterPage';
 import PrincipalHeader from 'src/shared/PrincipalHeader';
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
+import { useDeleteEditorialMutation, useGetEditorialsQuery } from '../slice/editorialApiSlice';
+import { Editorial } from '../interface/editorial.interface';
+import { useEffect, useState } from 'react';
+import { setDeleteModal } from '../slice/editorialSlice';
+import { useAppDispatch, useAppSelector } from 'src/store/useRedux';
 import DeleteDialog from 'src/shared/DeleteDialog';
-import { Author } from '../interface/author.interface';
 
-const ScreenAuthor = () => {
+const ScreenEditorial = () => {
  const theme = useTheme();
  const dispatch = useAppDispatch();
- const { isDeleteModal } = useAppSelector((state) => state.author);
- const [rowSelect, setRowSelect] = useState<Author>();
+ const { isDeleteModal } = useAppSelector((state) => state.editorial);
  const navigate = useNavigate();
- const handleCreate = () =>
-  navigate('/mantenimientos/new-autor', { replace: true });
+ const handleCreate = () => navigate('/mantenimientos/new-editorial', { replace: true });
+ const [rowSelect, setRowSelect] = useState<Editorial>();
 
- const { data } = useGetAuthorsQuery();
- const [deleteAuthor, { isSuccess }] = useDeleteAuthorMutation();
+ const { data } = useGetEditorialsQuery();
+ const [deleteEditorial, { isSuccess }] = useDeleteEditorialMutation();
 
  useEffect(() => {
     if (isSuccess) dispatch(setDeleteModal(false));
  }, [isSuccess, dispatch])
-
+ 
  return (
   <>
    <Helmet>
-    <title>Autor</title>
+    <title>Editorial</title>
    </Helmet>
    <PageTitleWrapper>
     <PrincipalHeader
-     title={'Autores'}
-     subtitle={'Aquí podrás ver todos los autores disponibles..'}
-     buttonTitle={'Crear autor'}
+     title={'Editorial'}
+     subtitle={'Aquí podrás ver todos las editoriales disponibles.'}
+     buttonTitle={'Crear editorial'}
      handleClick={handleCreate}
     />
    </PageTitleWrapper>
@@ -70,15 +66,15 @@ const ScreenAuthor = () => {
     >
      <Grid item xs={12}>
       <Card>
-       <CardHeader title="Lista de Autores" />
+       <CardHeader title="Lista de Editoriales" />
        <Divider />
        <TableContainer>
         <Table>
          <TableHead>
           <TableRow>
            <TableCell>ID</TableCell>
-           <TableCell>Nombre y Apellido</TableCell>
-           <TableCell>Edad</TableCell>
+           <TableCell>Nombre</TableCell>
+           <TableCell>Descripción</TableCell>
            <TableCell align="center">Acciones</TableCell>
           </TableRow>
          </TableHead>
@@ -89,7 +85,7 @@ const ScreenAuthor = () => {
              {row._id}
             </TableCell>
             <TableCell align="left">{row.name}</TableCell>
-            <TableCell align="left">{row.gender}</TableCell>
+            <TableCell align="left">{row.description}</TableCell>
             <TableCell align="center">
              <Tooltip title="Editar Autor" arrow>
               <IconButton
@@ -102,13 +98,15 @@ const ScreenAuthor = () => {
                color="inherit"
                size="small"
                onClick={() =>
-                navigate(`/mantenimientos/autor/${row._id}`, { replace: true })
+                navigate(`/mantenimientos/editorial/${row._id}`, {
+                 replace: true
+                })
                }
               >
                <EditTwoToneIcon fontSize="small" />
               </IconButton>
              </Tooltip>
-             <Tooltip title="Eliminar Autor" arrow>
+             <Tooltip title="Eliminar editorial" arrow>
               <IconButton
                sx={{
                 '&:hover': { background: theme.colors.error.lighter },
@@ -141,7 +139,7 @@ const ScreenAuthor = () => {
      open={isDeleteModal}
      handleClose={() => dispatch(setDeleteModal(false))}
      handleDelete={() => {
-      deleteAuthor({ _id: rowSelect._id });
+        deleteEditorial({ _id: rowSelect._id });
      }}
      subtitle={rowSelect.name}
     />
@@ -150,4 +148,4 @@ const ScreenAuthor = () => {
  );
 };
 
-export default ScreenAuthor;
+export default ScreenEditorial;

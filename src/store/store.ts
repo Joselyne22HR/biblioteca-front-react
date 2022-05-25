@@ -1,13 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { bibliotecaApi } from "./bibliotecaApi";
+//Reducers
 import authorReducer from "src/modules/authors/slice/authorSlice"
+import editorialReducer from "src/modules/editorial/slice/editorialSlice"
+import categoryReducer from "src/modules/category/slice/categorySlice"
+//ApiSlice
 import { authorApi } from "src/modules/authors/slice/authorApiSlice";
+import { editorialApi } from "src/modules/editorial/slice/editorialApiSlice";
+import { categoryApi } from "src/modules/category/slice/categoryApiSlice";
+
 
 export const store = configureStore({
   reducer: {
     [authorApi.reducerPath]: authorApi.reducer,
-    author: authorReducer
+    [editorialApi.reducerPath]: editorialApi.reducer,
+    [categoryApi.reducerPath]: categoryApi.reducer,
+    author: authorReducer,
+    editorial: editorialReducer,
+    category: categoryReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(bibliotecaApi.middleware),

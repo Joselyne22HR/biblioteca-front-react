@@ -48,10 +48,19 @@ const StatusComingSoon = Loader(lazy(() => import('src/content/pages/Status/Comi
 const StatusMaintenance = Loader(lazy(() => import('src/content/pages/Status/Maintenance')));
 
 //Modules
+
+//Author
 const Author = Loader(lazy(() => import('src/modules/authors/screen')))
 const NewAuthor = Loader(lazy(() => import('src/modules/authors/screen/ScreenAuthor')))
 const EditAuthor = Loader(lazy(() => import('src/modules/authors/screen/ScreenEditAuthor')))
-
+//Editorial
+const Editorial = Loader(lazy(() => import('src/modules/editorial/screen')))
+const NewEditorial = Loader(lazy(() => import('src/modules/editorial/screen/ScreenNewEditorial')))
+const EditEditorial = Loader(lazy(() => import('src/modules/editorial/screen/ScreenEditEditorial')))
+//Category
+const Category = Loader(lazy(() => import('src/modules/category/screen')))
+const NewCategory = Loader(lazy(() => import('src/modules/category/screen/ScreenNewCategory')))
+const EditCategory = Loader(lazy(() => import('src/modules/category/screen/ScreenEditCategory')))
 
 const routes: PartialRouteObject[] = [
   {
@@ -133,6 +142,30 @@ const routes: PartialRouteObject[] = [
       {
         path: 'autor/:idAuthor',
         element: <EditAuthor />
+      },
+      {
+        path: 'editorial',
+        element: <Editorial />
+      },
+      {
+        path: 'new-editorial',
+        element: <NewEditorial />
+      },
+      {
+        path: 'editorial/:idEditorial',
+        element: <EditEditorial />
+      },
+      {
+        path: 'category',
+        element: <Category />
+      },
+      {
+        path: 'new-category',
+        element: <NewCategory />
+      },
+      {
+        path: 'category/:idCategory',
+        element: <EditCategory />
       },
     ]
   },
