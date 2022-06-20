@@ -73,6 +73,11 @@ const menuItems: MenuItems[] = [
         link: '/mantenimientos/category',
         icon: BrightnessLowTwoToneIcon
       },
+      {
+        name: 'Book',
+        link: '/mantenimientos/book',
+        icon: BrightnessLowTwoToneIcon
+      },
     ]
   },
   {

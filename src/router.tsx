@@ -61,6 +61,10 @@ const EditEditorial = Loader(lazy(() => import('src/modules/editorial/screen/Scr
 const Category = Loader(lazy(() => import('src/modules/category/screen')))
 const NewCategory = Loader(lazy(() => import('src/modules/category/screen/ScreenNewCategory')))
 const EditCategory = Loader(lazy(() => import('src/modules/category/screen/ScreenEditCategory')))
+//Book
+const Book = Loader(lazy(() => import('src/modules/book/screen')))
+const NewBook = Loader(lazy(() => import('src/modules/book/screen/ScreenNewBook')))
+const EditBook = Loader(lazy(() => import('src/modules/book/screen/ScreenEditBook')))
 
 const routes: PartialRouteObject[] = [
   {
@@ -166,6 +170,18 @@ const routes: PartialRouteObject[] = [
       {
         path: 'category/:idCategory',
         element: <EditCategory />
+      },
+      {
+        path: 'book',
+        element: <Book />
+      },
+      {
+        path: 'new-book',
+        element: <NewBook />
+      },
+      {
+        path: 'book/:idBook',
+        element: <EditBook />
       },
     ]
   },
