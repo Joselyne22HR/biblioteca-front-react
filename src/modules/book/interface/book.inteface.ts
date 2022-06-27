@@ -20,12 +20,4 @@ export interface Author {
     description?: string;
 }
 
-export interface BookPayload {
-    isbn:        string;
-    name:        string;
-    edition:     string;
-    observation: string;
-    author:      string;
-    category:    string;
-    editorial:   string;
-}
+export type BookPayload = Omit<Book, '_id' | '__v'>

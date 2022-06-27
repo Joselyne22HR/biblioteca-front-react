@@ -6,6 +6,11 @@ import SidebarLayout from 'src/layouts/SidebarLayout';
 import BaseLayout from 'src/layouts/BaseLayout';
 
 import SuspenseLoader from 'src/components/SuspenseLoader';
+import StockScreen from './modules/stock/screen';
+import ScreenToLoan from './modules/toloan/screen';
+import ScreenReturn from './modules/returns/screen';
+import TableLoan from './modules/toloan/screen/TableLoan';
+import TableReturns from './modules/returns/screen/TableReturns';
 
 const Loader = (Component) => (props) => (
   <Suspense fallback={<SuspenseLoader />}>
@@ -182,6 +187,26 @@ const routes: PartialRouteObject[] = [
       {
         path: 'book/:idBook',
         element: <EditBook />
+      },
+      {
+        path: 'stock',
+        element: <StockScreen />
+      },
+      {
+        path: 'toloan',
+        element: <ScreenToLoan />
+      },
+      {
+        path: 'returns',
+        element: <ScreenReturn />
+      },
+      {
+        path: 'loans/list',
+        element: <TableLoan />
+      },
+      {
+        path: 'returns/list',
+        element: <TableReturns />
       },
     ]
   },

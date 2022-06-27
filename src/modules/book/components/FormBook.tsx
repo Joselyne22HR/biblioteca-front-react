@@ -66,13 +66,13 @@ const FormBook = ({ edit }: Props) => {
    },
    // validationSchema: validationEditorialSchema,
    onSubmit: async (values) => {
-    console.log(values);
-    //  edit
-    //   ? await updateBookMutation({
-    //      book: { ...values },
-    //      _id: idBook
-    //     })
-    //   : await newBookMutation({ book: { ...values } });
+    console.log('payload',values);
+     edit
+      ? await updateBookMutation({
+         book: { ...values },
+         _id: idBook
+        })
+      : await newBookMutation({ book: { ...values } });
    }
   });
  return (
