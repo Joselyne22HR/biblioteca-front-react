@@ -53,7 +53,7 @@ const TableReturns = () => {
            <TableCell>Libro</TableCell>
            <TableCell>Autor</TableCell>
            <TableCell>Fecha de Devolución</TableCell>
-           {/* <TableCell>Estado</TableCell> */}
+           {/* <TableCell>stado</TableCell> */}
           </TableRow>
          </TableHead>
          <TableBody>
